@@ -181,7 +181,7 @@ namespace SemestralniPrace
                     conn.Open();
                     var reader = com.ExecuteReader();
                     List<string> pole = new List<string>();
-                    while (reader.Read())
+                    while (reader.Read()) //TODO skáče pryč
                     {
                         try
                         {
@@ -486,7 +486,7 @@ namespace SemestralniPrace
         private void listView_ingredience_DoubleClick(object sender, EventArgs e)
         {
             string nazev = zjistiNazevVybraneIngredience();
-
+            nazev = nazev.Trim();
             if (nazev == null) {
                 Interaction.MsgBox("Nevybrána žádná ingredience");
             }
@@ -494,13 +494,13 @@ namespace SemestralniPrace
             //TODO vyskakovací okno s předvyplněnýma hodnotama pro úpravu počtu kusů
             //možná i pro změnu názvu
             //Interaction.MsgBox(nazev);
-            List<(int, string)> list = ZjistiIdANazev($"select i.nazev_ingredience, " +
-                $"ivs.pocet from IngredienceVeSkladu ivs left join Ingredience i using " +
-                $"(id_ingredience) where i.nazev_ingredience = '{nazev}';");
+            List<(int, string)> list = ZjistiIdANazev($"select ivs.pocet, " +
+                $"i.nazev_ingredience from IngredienceVeSkladu ivs left join Ingredience i using (id_ingredience) where i.nazev_ingredience = \'{nazev}\' ");
 
             if (list != null)
             {
-                Console.Write(list[0].Item1);
+                Console.WriteLine(list[0].Item1);
+                Console.WriteLine(list[0].Item2);
             }
         }
 
@@ -511,7 +511,7 @@ namespace SemestralniPrace
             {
                 int index = items[0].Text.IndexOf('-');
                 string nazev = items[0].Text.Substring(0, index);
-                Console.WriteLine(nazev);
+                //Console.WriteLine(nazev);
                 return nazev;
             }
             return null;
