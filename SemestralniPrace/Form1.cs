@@ -499,6 +499,10 @@ namespace SemestralniPrace
 
             if (list != null)
             {
+                Form2 form = new Form2();
+                form.textBox1.Text = list[0].Item2.ToString();
+                form.numericUpDown1.Value = list[0].Item1;
+                form.ShowDialog();
                 Console.WriteLine(list[0].Item1);
                 Console.WriteLine(list[0].Item2);
             }
