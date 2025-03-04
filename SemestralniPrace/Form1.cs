@@ -208,7 +208,7 @@ namespace SemestralniPrace
             }
         }
 
-        private List<(int, string)> ZjistiIdANazev(string prikaz)
+        private List<(int, string)> ZjistiIntAString(string prikaz)
         {
 
             //zjištění adresy, kde je uložen projekt a nalezení databáze
@@ -479,8 +479,7 @@ namespace SemestralniPrace
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-            form2.ShowDialog();
+            
         }
 
         private void listView_ingredience_DoubleClick(object sender, EventArgs e)
@@ -494,18 +493,38 @@ namespace SemestralniPrace
             //TODO vyskakovací okno s předvyplněnýma hodnotama pro úpravu počtu kusů
             //možná i pro změnu názvu
             //Interaction.MsgBox(nazev);
-            List<(int, string)> list = ZjistiIdANazev($"select ivs.pocet, " +
+            List<(int, string)> list = ZjistiIntAString($"select ivs.pocet, " +
                 $"i.nazev_ingredience from IngredienceVeSkladu ivs left join Ingredience i using (id_ingredience) where i.nazev_ingredience = \'{nazev}\' ");
 
             if (list != null)
             {
+                //proč nezjistím jen pocet a nazev neberu z proměnný? kdo ví. já ne
+                int pocet = list[0].Item1;
+                string nazevIngredience = list[0].Item2.ToString();
                 Form2 form = new Form2();
-                form.textBox1.Text = list[0].Item2.ToString();
-                form.numericUpDown1.Value = list[0].Item1;
-                form.ShowDialog();
-                Console.WriteLine(list[0].Item1);
-                Console.WriteLine(list[0].Item2);
+                form.textBox1.Text = nazevIngredience;
+                form.numericUpDown1.Value = pocet;
+                
+                if(form.ShowDialog() == DialogResult.OK)
+                {
+                    (int, string) vysledek = form.hodnota();
+                    Console.WriteLine(vysledek.Item1);
+                    Console.WriteLine(vysledek.Item2);
+                    if(vysledek.Item2.Equals(nazevIngredience))
+                    {
+                        //TODO vyskakovací okno, které se zeptá na změnu názvu ingredience
+
+                        /*
+                        VlozNeboUpravDataZDatabaze($"update Ingredience set nazev_ingredience = \'{vysledek.Item2}\' " +
+                            $"where nazev_ingredience = \'{nazevIngredience}\'");
+                        nazevIngredience = vysledek.Item2;
+                        */
+                    }
+                    VlozNeboUpravDataZDatabaze($"update IngredienceVeSkladu set pocet = {vysledek.Item1} where id_ingredience = " +
+                        $"(select i.id_ingredience from Ingredience i where i.nazev_ingredience = \'{nazevIngredience}\')");
+                }
             }
+            AktualizujViews();
         }
 
         private string zjistiNazevVybraneIngredience()
