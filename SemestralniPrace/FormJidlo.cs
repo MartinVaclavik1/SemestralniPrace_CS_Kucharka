@@ -51,12 +51,14 @@ namespace SemestralniPrace
         {
             //TODO nové vyskakovací okno s všemi možnými ingrediencemi mínus ty,
             //které už jsou přidány k receptu
-            string prikaz ="INSERT INTO IngredienceVJidle VALUES " +
-                "((select id_ingredience from Ingredience where nazev_ingredience = \"cukr\")" +
-                ",(select id_jidla from Jidlo where nazev = \"domaciPribinacek\")" +
-                ",1000)";
-            Databaze.VlozNeboUpravDataZDatabaze(prikaz);
 
+            //string prikaz ="INSERT INTO IngredienceVJidle VALUES " +
+            //    "((select id_ingredience from Ingredience where nazev_ingredience = \"cukr\")" +
+            //    ",(select id_jidla from Jidlo where nazev = \"domaciPribinacek\")" +
+            //    ",10)";
+            //Databaze.VlozNeboUpravDataZDatabaze(prikaz);
+            FormHledaniIngredienci form = new FormHledaniIngredienci(nazevPokrmu);
+            form.ShowDialog();
             AktualizujListView();
         }
 
