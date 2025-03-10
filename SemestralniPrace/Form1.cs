@@ -21,6 +21,8 @@ namespace SemestralniPrace
         {
             InitializeComponent();
             AktualizujViews();
+            toolTip.SetToolTip(listView_pokrmy,"klikněte dvakrát na vybraný pokrm pro úpravu");
+            toolTip.SetToolTip(listView_ingredience,"klikněte dvakrát na vybranou ingredienci pro úpravu");
         }
 
         //TODO metoda na zjišťování dat z jakékoliv tabulky - zatím je jen ze skladu
@@ -190,6 +192,18 @@ namespace SemestralniPrace
         private void listView_pokrmy_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             button3_Click(sender, e);
+        }
+
+        private void checkBoxTips_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxTips.Checked)
+            {
+                toolTip.Active = false;
+            }
+            else
+            {
+                toolTip.Active = true;
+            }
         }
     }
 }

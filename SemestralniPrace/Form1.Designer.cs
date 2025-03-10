@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listView_pokrmy = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.checkBoxTips = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // listView_pokrmy
@@ -54,9 +57,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 288);
+            this.button1.Location = new System.Drawing.Point(19, 282);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 44);
+            this.button1.Size = new System.Drawing.Size(68, 48);
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -123,11 +126,29 @@
             this.button4.Text = "zobraz všechny pokrmy";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // toolTip
+            // 
+            this.toolTip.AutomaticDelay = 1000;
+            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip.ToolTipTitle = "Informace";
+            // 
+            // checkBoxTips
+            // 
+            this.checkBoxTips.AutoSize = true;
+            this.checkBoxTips.Location = new System.Drawing.Point(104, 295);
+            this.checkBoxTips.Name = "checkBoxTips";
+            this.checkBoxTips.Size = new System.Drawing.Size(103, 20);
+            this.checkBoxTips.TabIndex = 8;
+            this.checkBoxTips.Text = "skrýt tooltips";
+            this.checkBoxTips.UseVisualStyleBackColor = true;
+            this.checkBoxTips.CheckedChanged += new System.EventHandler(this.checkBoxTips_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 350);
+            this.Controls.Add(this.checkBoxTips);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -153,6 +174,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.CheckBox checkBoxTips;
     }
 }
 
