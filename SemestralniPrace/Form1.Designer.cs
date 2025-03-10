@@ -52,7 +52,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(19, 394);
+            this.button1.Location = new System.Drawing.Point(12, 288);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 44);
             this.button1.TabIndex = 1;
@@ -104,11 +104,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(308, 372);
+            this.button3.Location = new System.Drawing.Point(313, 282);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 50);
             this.button3.TabIndex = 6;
-            this.button3.Text = "button3";
+            this.button3.Text = "uprav pokrm";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -116,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(798, 350);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);

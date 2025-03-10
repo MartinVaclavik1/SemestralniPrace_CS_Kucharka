@@ -19,22 +19,38 @@ namespace SemestralniPrace
             InitializeComponent();
         }
 
-        public (int,string) hodnota()
+        public Form2(string nazev, int pocet)
         {
-            return (pocet,nazev);
+            InitializeComponent();
+            textBox1.Text = this.nazev = nazev;
+            numericUpDown1.Value = this.pocet = pocet;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
-            Close();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            pocet = (int)numericUpDown1.Value;
-            nazev = textBox1.Text;
-            DialogResult = DialogResult.OK;
+
+            if (!nazev.Equals(textBox1.Text))
+            {
+                if(MessageBox.Show($"Vypadá to, že jste změnil název ingredience. Opravdu chcete přejmenovat \"{nazev}\" na \"{textBox1.Text}\"  ? (všechna spojení na tuto ingredienci zůstanou stejná)", "Název změněn", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Databaze.VlozNeboUpravDataZDatabaze($"update Ingredience set nazev_ingredience = \'{textBox1.Text}\' " +
+                    $"where nazev_ingredience = \'{nazev}\'");
+                    nazev = textBox1.Text;
+                }
+            }
+
+            if (pocet != (int)numericUpDown1.Value) {
+                Databaze.VlozNeboUpravDataZDatabaze($"update IngredienceVeSkladu set pocet = {(int)numericUpDown1.Value} where id_ingredience = " +
+                        $"(select i.id_ingredience from Ingredience i where i.nazev_ingredience = \'{nazev}\')");
+            }
+
+            
+            this.Close();
         }
     }
 }
