@@ -28,13 +28,43 @@ namespace SemestralniPrace
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            string ingredience = null;
+            int pocet = (int)numericUpDownPocet.Value;
             if(comboIngredience.Visible == false)
             {
-                //TODO uložit data z textboxu + checknout, jestli to už neexistuje v db a pak přidat
+                
+                ingredience = textBoxNovy.Text.Trim();
+                if(Databaze.ZjistiNazev($"select nazev_ingredience from Ingredience " +
+                    $"where nazev_ingredience=\"{ingredience}\"") == null)
+                {
+                    Databaze.VlozNeboUpravDataZDatabaze($"insert into Ingredience values(null, \"{ingredience}\")");
+                }
             }
-
-            string ingredience = comboIngredience.SelectedItem.ToString().Trim();
-            //Databaze.VlozNeboUpravDataZDatabaze("");
+            else
+            {
+                ingredience = comboIngredience.SelectedItem.ToString().Trim();
+            }
+            //checknout, jestli už není přiřazeno id a pak přidat
+            if(Databaze.ZjistiNazev($"select i.nazev_ingredience from Ingredience i " +
+                $"left join IngredienceVJidle using(id_ingredience) " +
+                $"left join Jidlo j using(id_jidla) " +
+                $"where i.nazev_ingredience = \"{ingredience}\" and j.nazev = \"{nazevPokrmu}\";") == null)
+            {
+                //spojení jídla a ingredience
+                Databaze.VlozNeboUpravDataZDatabaze($"insert into IngredienceVJidle " +
+                $"values((select id_ingredience from Ingredience i where i.nazev_ingredience = \"{ingredience}\"), " +
+                $"(select id_jidla from Jidlo where Jidlo.nazev = \"{nazevPokrmu}\"), {pocet})");
+                
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Tato ingredience je již přiřazena k aktuálně vybranému pokrmu", "Chyba!!");
+                textBoxNovy.Clear();
+                numericUpDownPocet.Value = 0;
+            }
+            
+            
         }
 
         private void NastavComboBox()

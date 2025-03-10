@@ -59,6 +59,7 @@ namespace SemestralniPrace
             //Databaze.VlozNeboUpravDataZDatabaze(prikaz);
             FormHledaniIngredienci form = new FormHledaniIngredienci(nazevPokrmu);
             form.ShowDialog();
+
             AktualizujListView();
         }
 
@@ -85,7 +86,7 @@ namespace SemestralniPrace
         {
 
             var items = listViewIngrediencePokrmu.SelectedItems;
-            if (items != null)
+            if (items.Count > 0)
             {
                 int index = items[0].Text.IndexOf('-');
                 string nazevIngredience = items[0].Text.Substring(0, index).Trim();

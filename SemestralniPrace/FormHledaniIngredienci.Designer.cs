@@ -50,6 +50,11 @@
             // numericUpDownPocet
             // 
             this.numericUpDownPocet.Location = new System.Drawing.Point(28, 72);
+            this.numericUpDownPocet.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numericUpDownPocet.Name = "numericUpDownPocet";
             this.numericUpDownPocet.Size = new System.Drawing.Size(279, 22);
             this.numericUpDownPocet.TabIndex = 2;
