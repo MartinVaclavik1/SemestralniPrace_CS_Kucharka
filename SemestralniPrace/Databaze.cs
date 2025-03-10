@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
@@ -11,7 +10,10 @@ namespace SemestralniPrace
 {
     class Databaze
     {
-
+        /// <summary>
+        /// vypíše všechny ingredience z databáze
+        /// </summary>
+        /// <param name="prikaz"></param>
         public static void ZjistiZDatabaze(string prikaz)
         {
 
@@ -88,6 +90,11 @@ namespace SemestralniPrace
             }
         }
 
+        /// <summary>
+        /// spojí string a int do jednoho strignu, který vrátí
+        /// </summary>
+        /// <param name="prikaz"></param>
+        /// <returns></returns>
         public static List<string> ZjistiNazevAPocetKs(string prikaz)
         {
 
@@ -294,7 +301,7 @@ namespace SemestralniPrace
                     catch (Exception x)
                     {
                         transaction.Rollback();
-                        Interaction.MsgBox(x.Message);
+                        MessageBox.Show(x.Message, "Chyba!");
                         return false;
                     }
                     conn.Close();

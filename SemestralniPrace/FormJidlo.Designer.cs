@@ -32,7 +32,7 @@
             this.textBoxNazevPokrmu = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnPridej = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewIngrediencePokrmu
@@ -56,9 +56,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(132, 232);
+            this.button1.Location = new System.Drawing.Point(131, 224);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 45);
+            this.button1.Size = new System.Drawing.Size(88, 44);
             this.button1.TabIndex = 2;
             this.button1.Text = "Ok";
             this.button1.UseVisualStyleBackColor = true;
@@ -66,30 +66,30 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(233, 232);
+            this.button2.Location = new System.Drawing.Point(225, 224);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 45);
+            this.button2.Size = new System.Drawing.Size(88, 45);
             this.button2.TabIndex = 3;
             this.button2.Text = "storno";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnPridej
             // 
-            this.button3.Location = new System.Drawing.Point(25, 232);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(85, 45);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Přidat ingredienci";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnPridej.Location = new System.Drawing.Point(25, 225);
+            this.btnPridej.Name = "btnPridej";
+            this.btnPridej.Size = new System.Drawing.Size(100, 44);
+            this.btnPridej.TabIndex = 4;
+            this.btnPridej.Text = "Přidat ingredienci";
+            this.btnPridej.UseVisualStyleBackColor = true;
+            this.btnPridej.Click += new System.EventHandler(this.btnPridej_Click);
             // 
             // FormJidlo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 288);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnPridej);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxNazevPokrmu);
@@ -107,6 +107,6 @@
         private System.Windows.Forms.TextBox textBoxNazevPokrmu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnPridej;
     }
 }

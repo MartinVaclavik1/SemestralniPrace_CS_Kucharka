@@ -76,7 +76,7 @@ namespace SemestralniPrace
                 if (existuje != null)
                 {
                     //updatne ingredienci na danou hodnotu
-                    //Interaction.MsgBox("ingredience existuje");
+                    //MessageBox.Show("ingredience existuje");
                     Databaze.VlozNeboUpravDataZDatabaze($"UPDATE IngredienceVeSkladu SET pocet = {pocet} WHERE id_ingredience = {ingredience} and id_skladu = 1");
                 }
                 else
@@ -151,8 +151,15 @@ namespace SemestralniPrace
                 FormJidlo formJidlo = new FormJidlo(nazevPokrmu);
                 
 
-                formJidlo.Show();
+                formJidlo.ShowDialog();
+                AktualizujViews();
             }
+            else
+            {
+                MessageBox.Show("Nevybrán žádný pokrm k úpravě", "Chyba!");
+            }
+
+            
         }
 
         private void listView_ingredience_DoubleClick(object sender, EventArgs e)
@@ -160,12 +167,9 @@ namespace SemestralniPrace
             string nazev = zjistiNazevVybraneIngredience();
             nazev = nazev.Trim();
             if (nazev == null) {
-                Interaction.MsgBox("Nevybrána žádná ingredience");
+                MessageBox.Show("Nevybrána žádná ingredience","Chyba!!");
             }
 
-            //TODO vyskakovací okno s předvyplněnýma hodnotama pro úpravu počtu kusů
-            //možná i pro změnu názvu
-            //Interaction.MsgBox(nazev);
             List<(int, string)> list = Databaze.ZjistiIntAString($"select ivs.pocet, " +
                 $"i.nazev_ingredience from IngredienceVeSkladu ivs left join Ingredience i using (id_ingredience) where i.nazev_ingredience = \'{nazev}\' ");
 
