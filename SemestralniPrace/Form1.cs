@@ -112,21 +112,11 @@ namespace SemestralniPrace
                 }
             }
         }
-        private List<string> ZjistiNazevMoznehoJidla()
-        {
-            return Databaze.ZjistiNazev("select distinct(j.nazev) from Jidlo j left join IngredienceVJidle ivj using (id_jidla) " +
-                "left join(select * from IngredienceVeSkladu where id_skladu = 1) ivs using (id_ingredience) " +
-                "except " +
-                "select j.nazev from Jidlo j left join IngredienceVJidle ivj using (id_jidla) " +
-                "left join " +
-                "(select* from IngredienceVeSkladu where id_skladu = 1) ivs " +
-                "using (id_ingredience) " +
-                "where ivs.pocet < ivj.pocet; ");
-        }
+
 
         private void AktualizujListViewPokrmy()
         {
-            List<string> list = ZjistiNazevMoznehoJidla();
+            List<string> list = Databaze.ZjistiNazevMoznehoJidla();
             listView_pokrmy.Clear();
             if (list != null)
             {
@@ -147,7 +137,7 @@ namespace SemestralniPrace
         {
             if(listView_pokrmy.SelectedItems.Count > 0)
             {
-                string nazevPokrmu = listView_pokrmy.SelectedItems[0].Text;
+                string nazevPokrmu = listView_pokrmy.SelectedItems[0].Text.Trim();
                 FormJidlo formJidlo = new FormJidlo(nazevPokrmu);
                 
 
@@ -165,7 +155,7 @@ namespace SemestralniPrace
         private void listView_ingredience_DoubleClick(object sender, EventArgs e)
         {
             string nazev = zjistiNazevVybraneIngredience();
-            nazev = nazev.Trim();
+            
             if (nazev == null) {
                 MessageBox.Show("Nevybrána žádná ingredience","Chyba!!");
             }
@@ -178,7 +168,7 @@ namespace SemestralniPrace
                 //proč nezjistím jen pocet a nazev neberu z proměnný? kdo ví. já ne
                 int pocet = list[0].Item1;
                 string nazevIngredience = list[0].Item2.ToString();
-                Form2 form = new Form2(nazevIngredience,pocet);
+                Ingredience form = new Ingredience(nazevIngredience,pocet, VazebniTabuka.SKLAD);
                 form.ShowDialog();
             }
 
@@ -191,11 +181,15 @@ namespace SemestralniPrace
             if (items != null)
             {
                 int index = items[0].Text.IndexOf('-');
-                string nazev = items[0].Text.Substring(0, index);
-                //Console.WriteLine(nazev);
+                string nazev = items[0].Text.Substring(0, index).Trim();
                 return nazev;
             }
             return null;
+        }
+
+        private void listView_pokrmy_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            button3_Click(sender, e);
         }
     }
 }

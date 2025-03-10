@@ -49,6 +49,7 @@
             this.listView_pokrmy.TileSize = new System.Drawing.Size(483, 36);
             this.listView_pokrmy.UseCompatibleStateImageBehavior = false;
             this.listView_pokrmy.View = System.Windows.Forms.View.Tile;
+            this.listView_pokrmy.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView_pokrmy_MouseDoubleClick);
             // 
             // button1
             // 

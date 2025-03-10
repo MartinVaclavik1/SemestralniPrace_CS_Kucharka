@@ -8,22 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+public enum VazebniTabuka
+{
+    SKLAD,
+    POKRM
+}
+
 namespace SemestralniPrace
 {
-    public partial class Form2: Form
+    public partial class Ingredience: Form
     {
         private int pocet;
         private string nazev;
-        public Form2()
+        private VazebniTabuka tabulka;
+        public Ingredience()
         {
             InitializeComponent();
         }
 
-        public Form2(string nazev, int pocet)
+        public Ingredience(string nazev, int pocet, VazebniTabuka tabulka)
         {
             InitializeComponent();
             textBox1.Text = this.nazev = nazev;
             numericUpDown1.Value = this.pocet = pocet;
+            this.tabulka = tabulka;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,13 +48,22 @@ namespace SemestralniPrace
                 {
                     Databaze.VlozNeboUpravDataZDatabaze($"update Ingredience set nazev_ingredience = \'{textBox1.Text}\' " +
                     $"where nazev_ingredience = \'{nazev}\'");
-                    nazev = textBox1.Text;
+                        nazev = textBox1.Text;
                 }
             }
 
             if (pocet != (int)numericUpDown1.Value) {
-                Databaze.VlozNeboUpravDataZDatabaze($"update IngredienceVeSkladu set pocet = {(int)numericUpDown1.Value} where id_ingredience = " +
-                        $"(select i.id_ingredience from Ingredience i where i.nazev_ingredience = \'{nazev}\')");
+                if(tabulka == VazebniTabuka.SKLAD)
+                {
+                    Databaze.VlozNeboUpravDataZDatabaze($"update IngredienceVeSkladu set pocet = {(int)numericUpDown1.Value} where id_ingredience = " +
+                       $"(select i.id_ingredience from Ingredience i where i.nazev_ingredience = \'{nazev}\')");
+                }
+                else
+                {
+                    Databaze.VlozNeboUpravDataZDatabaze($"update IngredienceVJidle set pocet = {(int)numericUpDown1.Value} where id_ingredience = " +
+                       $"(select i.id_ingredience from Ingredience i where i.nazev_ingredience = \'{nazev}\')");
+                }
+               
             }
 
             

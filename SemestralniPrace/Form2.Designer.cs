@@ -1,6 +1,6 @@
 ﻿namespace SemestralniPrace
 {
-    partial class Form2
+    partial class Ingredience
     {
         /// <summary>
         /// Required designer variable.
@@ -94,7 +94,7 @@
             this.textBox1.Size = new System.Drawing.Size(157, 22);
             this.textBox1.TabIndex = 5;
             // 
-            // Form2
+            // Ingredience
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +105,7 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form2";
+            this.Name = "Ingredience";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

@@ -91,7 +91,7 @@ namespace SemestralniPrace
         }
 
         /// <summary>
-        /// spojí string a int do jednoho strignu, který vrátí
+        /// spojí string a int do jednoho strignu, který vrátí a připíše na konec -ks/g
         /// </summary>
         /// <param name="prikaz"></param>
         /// <returns></returns>
@@ -318,6 +318,18 @@ namespace SemestralniPrace
             //return ZjistiNazevAPocetKs("select ing.nazev_ingredience, " +
             //"i.pocet from IngredienceVeSkladu i left join Ingredience ing " +
             //"where i.id_ingredience = ing.id_ingredience and i.id_skladu = 1");
+        }
+
+        public static List<string> ZjistiNazevMoznehoJidla()
+        {
+            return ZjistiNazev("select distinct(j.nazev) from Jidlo j left join IngredienceVJidle ivj using (id_jidla) " +
+                "left join(select * from IngredienceVeSkladu where id_skladu = 1) ivs using (id_ingredience) " +
+                "except " +
+                "select j.nazev from Jidlo j left join IngredienceVJidle ivj using (id_jidla) " +
+                "left join " +
+                "(select* from IngredienceVeSkladu where id_skladu = 1) ivs " +
+                "using (id_ingredience) " +
+                "where ivs.pocet < ivj.pocet; ");
         }
 
         /// <summary>

@@ -33,6 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnPridej = new System.Windows.Forms.Button();
+            this.btnOdeber = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewIngrediencePokrmu
@@ -42,21 +43,22 @@
             this.listViewIngrediencePokrmu.Location = new System.Drawing.Point(25, 88);
             this.listViewIngrediencePokrmu.MultiSelect = false;
             this.listViewIngrediencePokrmu.Name = "listViewIngrediencePokrmu";
-            this.listViewIngrediencePokrmu.Size = new System.Drawing.Size(288, 131);
+            this.listViewIngrediencePokrmu.Size = new System.Drawing.Size(382, 131);
             this.listViewIngrediencePokrmu.TabIndex = 0;
             this.listViewIngrediencePokrmu.UseCompatibleStateImageBehavior = false;
             this.listViewIngrediencePokrmu.View = System.Windows.Forms.View.Tile;
+            this.listViewIngrediencePokrmu.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewIngrediencePokrmu_MouseDoubleClick);
             // 
             // textBoxNazevPokrmu
             // 
             this.textBoxNazevPokrmu.Location = new System.Drawing.Point(25, 35);
             this.textBoxNazevPokrmu.Name = "textBoxNazevPokrmu";
-            this.textBoxNazevPokrmu.Size = new System.Drawing.Size(288, 22);
+            this.textBoxNazevPokrmu.Size = new System.Drawing.Size(382, 22);
             this.textBoxNazevPokrmu.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(131, 224);
+            this.button1.Location = new System.Drawing.Point(225, 225);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 44);
             this.button1.TabIndex = 2;
@@ -66,7 +68,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(225, 224);
+            this.button2.Location = new System.Drawing.Point(319, 225);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 45);
             this.button2.TabIndex = 3;
@@ -84,11 +86,22 @@
             this.btnPridej.UseVisualStyleBackColor = true;
             this.btnPridej.Click += new System.EventHandler(this.btnPridej_Click);
             // 
+            // btnOdeber
+            // 
+            this.btnOdeber.Location = new System.Drawing.Point(131, 225);
+            this.btnOdeber.Name = "btnOdeber";
+            this.btnOdeber.Size = new System.Drawing.Size(88, 44);
+            this.btnOdeber.TabIndex = 5;
+            this.btnOdeber.Text = "Odebrat ingredienci";
+            this.btnOdeber.UseVisualStyleBackColor = true;
+            this.btnOdeber.Click += new System.EventHandler(this.btnOdeber_Click);
+            // 
             // FormJidlo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 288);
+            this.ClientSize = new System.Drawing.Size(428, 282);
+            this.Controls.Add(this.btnOdeber);
             this.Controls.Add(this.btnPridej);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -108,5 +121,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnPridej;
+        private System.Windows.Forms.Button btnOdeber;
     }
 }
