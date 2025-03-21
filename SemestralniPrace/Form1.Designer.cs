@@ -39,6 +39,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.checkBoxTips = new System.Windows.Forms.CheckBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView_pokrmy
@@ -78,11 +79,11 @@
             // 
             this.listView_ingredience.FullRowSelect = true;
             this.listView_ingredience.HideSelection = false;
-            this.listView_ingredience.Location = new System.Drawing.Point(613, 30);
+            this.listView_ingredience.Location = new System.Drawing.Point(551, 30);
             this.listView_ingredience.MultiSelect = false;
             this.listView_ingredience.Name = "listView_ingredience";
             this.listView_ingredience.ShowGroups = false;
-            this.listView_ingredience.Size = new System.Drawing.Size(175, 246);
+            this.listView_ingredience.Size = new System.Drawing.Size(237, 246);
             this.listView_ingredience.TabIndex = 3;
             this.listView_ingredience.UseCompatibleStateImageBehavior = false;
             this.listView_ingredience.View = System.Windows.Forms.View.Tile;
@@ -91,7 +92,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(613, 10);
+            this.label2.Location = new System.Drawing.Point(548, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 16);
             this.label2.TabIndex = 4;
@@ -99,11 +100,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(613, 282);
+            this.button2.Location = new System.Drawing.Point(656, 280);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 48);
+            this.button2.Size = new System.Drawing.Size(132, 48);
             this.button2.TabIndex = 5;
-            this.button2.Text = "přidat ingredience do skladu";
+            this.button2.Text = "přidat ingredienci do skladu";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -144,11 +145,22 @@
             this.checkBoxTips.UseVisualStyleBackColor = true;
             this.checkBoxTips.CheckedChanged += new System.EventHandler(this.checkBoxTips_CheckedChanged);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(551, 280);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(99, 48);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "odeber ingredienci";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 350);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.checkBoxTips);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -177,6 +189,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.CheckBox checkBoxTips;
+        private System.Windows.Forms.Button button5;
     }
 }
 

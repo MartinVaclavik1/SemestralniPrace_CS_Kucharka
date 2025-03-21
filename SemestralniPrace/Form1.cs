@@ -222,5 +222,21 @@ namespace SemestralniPrace
             pokrmy.ShowDialog();
             AktualizujListViewPokrmy();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (listView_ingredience.SelectedItems.Count > 0)
+            {
+                string nazevIngredience = zjistiNazevVybraneIngredience();
+
+                Databaze.VlozNeboUpravDataZDatabaze($"delete from IngredienceVeSkladu where id_ingredience = (select id_ingredience from Ingredience where nazev_ingredience = \"{nazevIngredience}\")");
+
+                AktualizujListViewIngredience();
+            }
+            else
+            {
+                MessageBox.Show("Nevybrána žádná ingredience k odebrání", "Chyba!");
+            }
+        }
     }
 }
