@@ -59,8 +59,9 @@ namespace SemestralniPrace
                 string nazev = Interaction.InputBox("zadej nazev", "nazev");
                 nazev = nazev.Trim();
                 //Console.WriteLine(nazev);
-                int pocet = int.Parse(Interaction.InputBox("zadej pocet", "pocet"));
-                //Console.WriteLine(pocet);
+                
+                //int pocet = int.Parse(Interaction.InputBox("zadej pocet", "pocet"));
+
 
                 //zjistí id dané ingredience (pokud existuje)
                 List<int> list = Databaze.ZjistiCislo($"select i.id_ingredience from Ingredience i where nazev_ingredience = \'{nazev}\'");
@@ -75,17 +76,25 @@ namespace SemestralniPrace
                 int ingredience = list[0];
                 //zkontrolovat, jestli je ve vazební tabulce a pak buď přidat, nebo změnit
                 List<int> existuje = Databaze.ZjistiCislo($"select i.id_skladu from IngredienceVeSkladu i where i.id_ingredience = {ingredience}");
+                Ingredience form;
                 if (existuje != null)
                 {
                     //updatne ingredienci na danou hodnotu
                     //MessageBox.Show("ingredience existuje");
-                    Databaze.VlozNeboUpravDataZDatabaze($"UPDATE IngredienceVeSkladu SET pocet = {pocet} WHERE id_ingredience = {ingredience} and id_skladu = 1");
+                    //Databaze.VlozNeboUpravDataZDatabaze($"UPDATE IngredienceVeSkladu SET pocet = {pocet} WHERE id_ingredience = {ingredience} and id_skladu = 1");
+                    List<int> pocet = Databaze.ZjistiCislo($"select i.pocet from IngredienceVeSkladu i where i.id_ingredience = {ingredience}");
+                    form = new Ingredience(nazev, pocet[0], VazebniTabuka.SKLAD);
                 }
                 else
                 {
                     //vloží novou ingredienci do vazební tabulky IngredienceVeSKladu
-                    Databaze.VlozNeboUpravDataZDatabaze($"INSERT INTO IngredienceVeSkladu VALUES ({ingredience}, 1 ,{pocet})");
+                    
+                    Databaze.VlozNeboUpravDataZDatabaze($"INSERT INTO IngredienceVeSkladu VALUES ({ingredience}, 1 ,0)");
+                    form = new Ingredience(nazev, 0, VazebniTabuka.SKLAD);
                 }
+
+                
+                form.ShowDialog();
             }
             catch (Exception)
             {
@@ -97,7 +106,7 @@ namespace SemestralniPrace
 
         private List<string> ZjistiNazevIngredienceAPocetZeSkladu1()
         {
-            return Databaze.ZjistiNazevAPocetKs("select * from ViewNazevAPocetIngVeSkladu1");
+            return Databaze.ZjistiNazevAPocetKs("select * from ViewNazevAPocetIngVeSkladu1"); //where pocet > 0
             //return ZjistiNazevAPocetKs("select ing.nazev_ingredience, " +
             //"i.pocet from IngredienceVeSkladu i left join Ingredience ing " +
             //"where i.id_ingredience = ing.id_ingredience and i.id_skladu = 1");
@@ -150,8 +159,6 @@ namespace SemestralniPrace
             {
                 MessageBox.Show("Nevybrán žádný pokrm k úpravě", "Chyba!");
             }
-
-            
         }
 
         private void listView_ingredience_DoubleClick(object sender, EventArgs e)
@@ -204,6 +211,16 @@ namespace SemestralniPrace
             {
                 toolTip.Active = true;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //zobrazí list view se všemy pokrmy - double click => úprava (FormJidlo)
+            //vlož pokrm => inputBox s názvem => zkontroluje, jestli už neexistuje a
+            //když ne, tak vytvoří novou entitu a otevře FormJidlo s tím názvem
+            FormVsechnyPokrmy pokrmy = new FormVsechnyPokrmy();
+            pokrmy.ShowDialog();
+            AktualizujListViewPokrmy();
         }
     }
 }
