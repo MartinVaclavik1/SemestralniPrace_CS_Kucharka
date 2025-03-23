@@ -25,28 +25,6 @@ namespace SemestralniPrace
             toolTip.SetToolTip(listView_ingredience,"klikněte dvakrát na vybranou ingredienci pro úpravu");
         }
 
-        //TODO metoda na zjišťování dat z jakékoliv tabulky - zatím je jen ze skladu
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            Databaze.ZjistiZDatabaze("select * from Ingredience");
-            //ZjistiZDatabaze("select nazev_ingredience from Ingredience where id_ingredience = 1"); - nutnost parsovat jen string
-
-
-            /*  odebrani z databaze
-            *   VlozNeboUpravDataZDatabaze("delete from Sklad where id_skladu = 2");
-            *   
-            *   vlozeni do databaze
-            *   VlozNeboUpravDataZDatabaze("insert into Sklad values(null, 'test')");
-            */
-        }
-
-
-        
-
-       
-
         private void button2_Click(object sender, EventArgs e)
         {
             //TODO vyskočí okno, které se zeptá co a kolik toho chce přidat
@@ -153,7 +131,6 @@ namespace SemestralniPrace
             {
                 string nazevPokrmu = listView_pokrmy.SelectedItems[0].Text.Trim();
                 FormJidlo formJidlo = new FormJidlo(nazevPokrmu);
-                
 
                 formJidlo.ShowDialog();
                 AktualizujViews();
@@ -234,7 +211,7 @@ namespace SemestralniPrace
 
                 Databaze.VlozNeboUpravDataZDatabaze($"delete from IngredienceVeSkladu where id_ingredience = (select id_ingredience from Ingredience where nazev_ingredience = \"{nazevIngredience}\")");
 
-                AktualizujListViewIngredience();
+                AktualizujViews();
             }
             else
             {

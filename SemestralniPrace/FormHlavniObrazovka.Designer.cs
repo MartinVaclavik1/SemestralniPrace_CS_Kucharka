@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listView_pokrmy = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listView_ingredience = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,16 +54,6 @@
             this.listView_pokrmy.UseCompatibleStateImageBehavior = false;
             this.listView_pokrmy.View = System.Windows.Forms.View.Tile;
             this.listView_pokrmy.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView_pokrmy_MouseDoubleClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(19, 282);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 56);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "vypis do cmd";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -110,7 +99,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(374, 282);
+            this.button3.Location = new System.Drawing.Point(153, 282);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 56);
             this.button3.TabIndex = 6;
@@ -120,7 +109,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(240, 282);
+            this.button4.Location = new System.Drawing.Point(19, 282);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(128, 56);
             this.button4.TabIndex = 7;
@@ -137,7 +126,7 @@
             // checkBoxTips
             // 
             this.checkBoxTips.AutoSize = true;
-            this.checkBoxTips.Location = new System.Drawing.Point(104, 295);
+            this.checkBoxTips.Location = new System.Drawing.Point(399, 301);
             this.checkBoxTips.Name = "checkBoxTips";
             this.checkBoxTips.Size = new System.Drawing.Size(103, 20);
             this.checkBoxTips.TabIndex = 8;
@@ -168,7 +157,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listView_ingredience);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.listView_pokrmy);
             this.Name = "Form1";
             this.Text = "Kucharka";
@@ -180,7 +168,6 @@
         #endregion
 
         private System.Windows.Forms.ListView listView_pokrmy;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listView_ingredience;
         private System.Windows.Forms.Label label2;
