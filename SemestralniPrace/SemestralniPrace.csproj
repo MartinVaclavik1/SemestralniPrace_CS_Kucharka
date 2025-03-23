@@ -134,6 +134,9 @@
     <EmbeddedResource Include="FormJidlo.resx">
       <DependentUpon>FormJidlo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPridatIngredience.resx">
+      <DependentUpon>FormPridatIngredience.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormVsechnyPokrmy.resx">
       <DependentUpon>FormVsechnyPokrmy.cs</DependentUpon>
     </EmbeddedResource>
