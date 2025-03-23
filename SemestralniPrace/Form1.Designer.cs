@@ -60,7 +60,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(19, 282);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 48);
+            this.button1.Size = new System.Drawing.Size(68, 56);
             this.button1.TabIndex = 1;
             this.button1.Text = "vypis do cmd";
             this.button1.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(689, 280);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 48);
+            this.button2.Size = new System.Drawing.Size(132, 58);
             this.button2.TabIndex = 5;
             this.button2.Text = "přidat ingredienci do skladu";
             this.button2.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(374, 282);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 48);
+            this.button3.Size = new System.Drawing.Size(128, 56);
             this.button3.TabIndex = 6;
             this.button3.Text = "uprav vybraný pokrm";
             this.button3.UseVisualStyleBackColor = true;
@@ -120,9 +120,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(228, 282);
+            this.button4.Location = new System.Drawing.Point(240, 282);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(128, 48);
+            this.button4.Size = new System.Drawing.Size(128, 56);
             this.button4.TabIndex = 7;
             this.button4.Text = "zobraz všechny pokrmy";
             this.button4.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             // 
             this.button5.Location = new System.Drawing.Point(551, 280);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(132, 48);
+            this.button5.Size = new System.Drawing.Size(132, 58);
             this.button5.TabIndex = 9;
             this.button5.Text = "odeber ingredienci ze skladu";
             this.button5.UseVisualStyleBackColor = true;

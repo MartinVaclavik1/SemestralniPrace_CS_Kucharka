@@ -108,6 +108,12 @@
     <Compile Include="FormJidlo.Designer.cs">
       <DependentUpon>FormJidlo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPridatIngredience.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPridatIngredience.Designer.cs">
+      <DependentUpon>FormPridatIngredience.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVsechnyPokrmy.cs">
       <SubType>Form</SubType>
     </Compile>
