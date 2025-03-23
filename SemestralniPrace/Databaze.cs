@@ -324,12 +324,11 @@ namespace SemestralniPrace
         {
             return ZjistiNazev("select distinct(j.nazev) from Jidlo j left join IngredienceVJidle ivj using (id_jidla) " +
                 "left join(select * from IngredienceVeSkladu where id_skladu = 1) ivs using (id_ingredience) " +
-                "except " +
-                "select j.nazev from Jidlo j left join IngredienceVJidle ivj using (id_jidla) " +
+                "except select j.nazev from Jidlo j left join IngredienceVJidle ivj using (id_jidla) " +
                 "left join " +
                 "(select* from IngredienceVeSkladu where id_skladu = 1) ivs " +
                 "using (id_ingredience) " +
-                "where ivs.pocet < ivj.pocet; ");
+                "where ivs.pocet < ivj.pocet or ivj.id_ingredience not in (select id_ingredience from IngredienceVeSkladu); ");
         }
 
         /// <summary>

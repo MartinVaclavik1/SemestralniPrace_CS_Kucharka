@@ -30,6 +30,12 @@ namespace SemestralniPrace
         {
             if (!nazevPokrmu.Equals(textBoxNazevPokrmu.Text))
             {
+                if (string.IsNullOrEmpty(textBoxNazevPokrmu.Text))
+                {
+                    MessageBox.Show("Nelze vkládat prázdné hodoty", "CHYBA");
+                    return;
+                }
+
                 if (MessageBox.Show($"Vypadá to, že jste změnil název pokrmu. Opravdu chcete přejmenovat \"{nazevPokrmu}\" na \"{textBoxNazevPokrmu.Text}\"  ? (všechna spojení na tuto ingredienci zůstanou stejná)", "Název změněn", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     Databaze.VlozNeboUpravDataZDatabaze($"update Jidlo set nazev = \'{textBoxNazevPokrmu.Text}\' " +

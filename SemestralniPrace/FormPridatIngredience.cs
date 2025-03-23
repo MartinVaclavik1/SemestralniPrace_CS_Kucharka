@@ -29,6 +29,11 @@ namespace SemestralniPrace
             {
                 //vytvořit novou ingredienci
                 ingredience = textBoxNovy.Text.Trim();
+                if (string.IsNullOrEmpty(ingredience))
+                {
+                    MessageBox.Show("Nelze vkládat prázdné hodoty", "CHYBA");
+                    return;
+                }
                 if (Databaze.ZjistiNazev($"select nazev_ingredience from Ingredience " +
                     $"where nazev_ingredience=\"{ingredience}\"") == null)
                 {
