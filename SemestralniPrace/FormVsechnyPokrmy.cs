@@ -97,7 +97,7 @@ namespace SemestralniPrace
             if (listView_pokrmy.SelectedItems.Count > 0)
             {
                 string nazevPokrmu = listView_pokrmy.SelectedItems[0].Text.Trim();
-
+                Databaze.VlozNeboUpravDataZDatabaze($"delete from IngredienceVJidle where id_jidla = (select id_jidla from Jidlo where nazev = \"{nazevPokrmu}\")");
                 Databaze.VlozNeboUpravDataZDatabaze($"delete from Jidlo where nazev = \"{nazevPokrmu}\"");
 
                 AktualizujView();
