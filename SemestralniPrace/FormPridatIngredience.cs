@@ -54,8 +54,6 @@ namespace SemestralniPrace
                 $"set pocet = {pocet} " +
                 $"where id_ingredience = (select id_ingredience from Ingredience i where i.nazev_ingredience = \"{ingredience}\") " +
                 $"and id_skladu = 1");
-
-                Close();
             }
             else
             {
@@ -65,6 +63,7 @@ namespace SemestralniPrace
                 textBoxNovy.Clear();
                 numericUpDownPocet.Value = 0;
             }
+            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -75,8 +74,16 @@ namespace SemestralniPrace
         private void NastavComboBox()
         {
             List<string> ingredience = Databaze.ZjistiNazev("select nazev_ingredience from Ingredience " +
-                "except (select i.nazev_ingredience from Ingredience i " +
-                "left join IngredienceVeSkladu ivs using(id_ingredience) where ivs.pocet > 0)");
+                "except select i.nazev_ingredience from Ingredience i " +
+                "left join IngredienceVeSkladu ivs using(id_ingredience) where ivs.pocet > 0");
+
+            if(ingredience == null)
+            {
+                textBoxNovy.Width = comboIngredience.Width;
+                comboIngredience.Visible = false;
+                textBoxNovy.Visible = true;
+                return;
+            }
 
 
             foreach (var ing in ingredience)
