@@ -80,7 +80,7 @@
             // 
             this.numericUpDownPocet.Location = new System.Drawing.Point(12, 51);
             this.numericUpDownPocet.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
