@@ -49,6 +49,7 @@
             this.listView_pokrmy.MultiSelect = false;
             this.listView_pokrmy.Name = "listView_pokrmy";
             this.listView_pokrmy.Size = new System.Drawing.Size(483, 246);
+            this.listView_pokrmy.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView_pokrmy.TabIndex = 0;
             this.listView_pokrmy.TileSize = new System.Drawing.Size(483, 36);
             this.listView_pokrmy.UseCompatibleStateImageBehavior = false;
@@ -73,6 +74,7 @@
             this.listView_ingredience.Name = "listView_ingredience";
             this.listView_ingredience.ShowGroups = false;
             this.listView_ingredience.Size = new System.Drawing.Size(270, 246);
+            this.listView_ingredience.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView_ingredience.TabIndex = 3;
             this.listView_ingredience.UseCompatibleStateImageBehavior = false;
             this.listView_ingredience.View = System.Windows.Forms.View.Tile;
