@@ -20,12 +20,14 @@ namespace SemestralniPrace
     //a pak se to automaticky odebere ze skladu - update table pocet = pocet - pocet2 ve for loopu)
     public partial class Form1 : Form
     {
+        public static List<(string, string)> list = new List<(string, string)>();
         public Form1()
         {
             InitializeComponent();
             AktualizujViews();
-            toolTip.SetToolTip(listView_pokrmy,"klikněte dvakrát na vybraný pokrm pro úpravu");
-            toolTip.SetToolTip(listView_ingredience,"klikněte dvakrát na vybranou ingredienci pro úpravu");
+            toolTip.SetToolTip(listView_pokrmy, "klikněte dvakrát na vybraný pokrm pro úpravu");
+            toolTip.SetToolTip(listView_ingredience, "klikněte dvakrát na vybranou ingredienci pro úpravu");
+            dataGridViewIngredience.Columns[1].ValueType = typeof(int);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -103,6 +105,18 @@ namespace SemestralniPrace
                     listView_ingredience.Items.Add(new ListViewItem((string)item));
                 }
             }
+
+
+            List<(int, string)> list2 = Databaze.ZjistiIntAString("select pocet, nazev_ingredience from ViewNazevAPocetIngVeSkladu1 where pocet > 0");
+            dataGridViewIngredience.Rows.Clear();
+            if (list2 != null)
+            {
+                foreach (var item in list2)
+                {
+                    dataGridViewIngredience.Rows.Add(item.Item2, item.Item1);
+                    //listView_ingredience.Items.Add(new ListViewItem((string)item));
+                }
+            }
         }
 
 
@@ -127,7 +141,7 @@ namespace SemestralniPrace
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(listView_pokrmy.SelectedItems.Count > 0)
+            if (listView_pokrmy.SelectedItems.Count > 0)
             {
                 string nazevPokrmu = listView_pokrmy.SelectedItems[0].Text.Trim();
                 FormJidlo formJidlo = new FormJidlo(nazevPokrmu);
@@ -144,9 +158,10 @@ namespace SemestralniPrace
         private void listView_ingredience_DoubleClick(object sender, EventArgs e)
         {
             string nazev = zjistiNazevVybraneIngredience();
-            
-            if (nazev == null) {
-                MessageBox.Show("Nevybrána žádná ingredience","Chyba!!");
+
+            if (nazev == null)
+            {
+                MessageBox.Show("Nevybrána žádná ingredience", "Chyba!!");
             }
 
             List<(int, string)> list = Databaze.ZjistiIntAString($"select ivs.pocet, " +
@@ -157,7 +172,7 @@ namespace SemestralniPrace
                 //proč nezjistím jen pocet a nazev neberu z proměnný? kdo ví. já ne
                 int pocet = list[0].Item1;
                 string nazevIngredience = list[0].Item2.ToString();
-                Ingredience form = new Ingredience(nazevIngredience,pocet, VazebniTabuka.SKLAD);
+                Ingredience form = new Ingredience(nazevIngredience, pocet, VazebniTabuka.SKLAD);
                 form.ShowDialog();
             }
 
@@ -217,6 +232,30 @@ namespace SemestralniPrace
             {
                 MessageBox.Show("Nevybrána žádná ingredience k odebrání", "Chyba!");
             }
+        }
+
+        private void dataGridViewIngredience_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewIngredience_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!(dataGridViewIngredience.Rows.Count > 0))
+            {
+                return;
+            }
+            //radek
+            int radek = e.RowIndex;
+
+            //sloupec - 0, nebo 1
+            int sloupec = e.ColumnIndex;
+
+
+            //dataGridViewIngredience.Columns;
+            DataGridViewRow row = this.dataGridViewIngredience.Rows[radek];
+            MessageBox.Show(row.Cells[sloupec].Value.ToString());
+
         }
     }
 }

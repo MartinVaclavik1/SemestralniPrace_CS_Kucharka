@@ -53,9 +53,9 @@ namespace SemestralniPrace
         {
             string nazev = Interaction.InputBox("zadej nazev", "nazev").Trim();
 
-            if (nazev == null)
+            if (String.IsNullOrEmpty(nazev))
             {
-                MessageBox.Show("Nelze vkládat NULL", "chyba");
+                //MessageBox.Show("Nelze vkládat NULL", "chyba");
                 return;
             }
 
