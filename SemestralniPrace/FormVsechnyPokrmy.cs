@@ -63,7 +63,8 @@ namespace SemestralniPrace
 
             foreach (var item in list)
             {
-                if (nazev.Equals(item)){
+                if (nazev.Equals(item))
+                {
                     MessageBox.Show("Pokrm již existuje v databázi", "chyba");
                     return;
                 }
@@ -94,13 +95,18 @@ namespace SemestralniPrace
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             if (listView_pokrmy.SelectedItems.Count > 0)
             {
                 string nazevPokrmu = listView_pokrmy.SelectedItems[0].Text.Trim();
-                Databaze.VlozNeboUpravDataZDatabaze($"delete from IngredienceVJidle where id_jidla = (select id_jidla from Jidlo where nazev = \"{nazevPokrmu}\")");
-                Databaze.VlozNeboUpravDataZDatabaze($"delete from Jidlo where nazev = \"{nazevPokrmu}\"");
 
-                AktualizujView();
+                if (MessageBox.Show($"Opravdu chcete smazat pokrm {nazevPokrmu}?", "Smazání pokrmu", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    Databaze.VlozNeboUpravDataZDatabaze($"delete from IngredienceVJidle where id_jidla = (select id_jidla from Jidlo where nazev = \"{nazevPokrmu}\")");
+                    Databaze.VlozNeboUpravDataZDatabaze($"delete from Jidlo where nazev = \"{nazevPokrmu}\"");
+
+                    AktualizujView();
+                }
             }
             else
             {
