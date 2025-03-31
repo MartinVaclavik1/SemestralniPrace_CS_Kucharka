@@ -90,6 +90,12 @@
     <Compile Include="FormHlavniObrazovka.Designer.cs">
       <DependentUpon>FormHlavniObrazovka.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKontrolaOdebraniIngredienci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKontrolaOdebraniIngredienci.Designer.cs">
+      <DependentUpon>FormKontrolaOdebraniIngredienci.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUpravaIngredience.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormHlavniObrazovka.resx">
       <DependentUpon>FormHlavniObrazovka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKontrolaOdebraniIngredienci.resx">
+      <DependentUpon>FormKontrolaOdebraniIngredienci.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpravaIngredience.resx">
       <DependentUpon>FormUpravaIngredience.cs</DependentUpon>

@@ -171,7 +171,8 @@ namespace SemestralniPrace
                     //otevře novej form, kde v konstruktoru bude nazevPokrmu a List<int,string>
                     //a bude v něm dataGridView s forcnutým intem a locklou editacy na názvu
                     //label: upravte, zda jste použili jiný počet ingrediencí
-                    FormKontrolaOdebraniIngredienci form = new FormKontrolaOdebraniIngredienci();
+                    FormKontrolaOdebraniIngredienci form = new FormKontrolaOdebraniIngredienci(nazevPokrmu,list);
+                    form.ShowDialog();
                 }
 
             }
