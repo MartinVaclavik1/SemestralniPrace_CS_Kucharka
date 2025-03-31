@@ -113,5 +113,42 @@ namespace SemestralniPrace
                 MessageBox.Show("Nevybrán žádný pokrm k odebrání", "Chyba!");
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //všechny ingredience v pokrmu mínus počet ingrediencí ve skladu.
+            //když jsou větší, než 0
+            if (listView_pokrmy.SelectedItems.Count > 0)
+            {
+                string nazevPokrmu = listView_pokrmy.SelectedItems[0].Text.Trim();
+                var list = Databaze.ZjistiNazevAPocetKs($"select nazev_ingredience, " +
+                $"ifnull(ivj.pocet - ivs.pocet, ivj.pocet) from Jidlo " +
+                $"left join IngredienceVJidle ivj using(id_jidla) " +
+                $"left join Ingredience using(id_ingredience) " +
+                $"left join IngredienceVeSkladu ivs using(id_ingredience) " +
+                $"where nazev =\'{nazevPokrmu}\' and ifnull(ivj.pocet - ivs.pocet, ivj.pocet) > 0");
+
+                if(list == null)
+                {
+                    MessageBox.Show("Všechny ingredience pro pokrm jsou již ve skladu");
+                }
+                else
+                {
+                    string text = "";
+                    foreach (var item in list)
+                    {
+                        text += item +"\n";
+                    }
+                    MessageBox.Show(text);
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Nevybrán žádný pokrm k úpravě", "Chyba!");
+            }
+            
+        }
     }
 }
