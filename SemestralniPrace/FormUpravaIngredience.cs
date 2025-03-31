@@ -69,5 +69,21 @@ namespace SemestralniPrace
             
             this.Close();
         }
+
+        private void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button1_Click(sender, null);
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button1_Click(sender, null);
+            }
+        }
     }
 }

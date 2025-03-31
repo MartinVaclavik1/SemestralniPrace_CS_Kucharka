@@ -18,10 +18,10 @@ namespace SemestralniPrace
     //TODO pridat automatické odebrání počtu použitých Ingrediencích (otevře se
     //okno se všemi ingrediencemi a počtem, kde by šlo změnit, kolik se toho použilo [0 pro nic]
     //a pak se to automaticky odebere ze skladu - update table pocet = pocet - pocet2 ve for loopu)
-    public partial class Form1 : Form
+    public partial class FormHlavniObrazovka : Form
     {
         public static List<(string, string)> list = new List<(string, string)>();
-        public Form1()
+        public FormHlavniObrazovka()
         {
             InitializeComponent();
             AktualizujViews();
@@ -133,7 +133,7 @@ namespace SemestralniPrace
             }
         }
 
-        private void AktualizujViews()
+        public void AktualizujViews()
         {
             AktualizujListViewIngredience();
             AktualizujListViewPokrmy();
@@ -215,7 +215,8 @@ namespace SemestralniPrace
             //když ne, tak vytvoří novou entitu a otevře FormJidlo s tím názvem
             FormVsechnyPokrmy pokrmy = new FormVsechnyPokrmy();
             pokrmy.ShowDialog();
-            AktualizujListViewPokrmy();
+
+            AktualizujViews();
         }
 
         private void button5_Click(object sender, EventArgs e)

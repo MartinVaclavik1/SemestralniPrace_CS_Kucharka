@@ -57,6 +57,8 @@
             this.dataGridViewIngredience.RowTemplate.Height = 24;
             this.dataGridViewIngredience.Size = new System.Drawing.Size(321, 245);
             this.dataGridViewIngredience.TabIndex = 11;
+            this.dataGridViewIngredience.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewIngredience_CellBeginEdit);
+            this.dataGridViewIngredience.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIngredience_CellEndEdit);
             this.dataGridViewIngredience.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewIngredience_DataError);
             // 
             // Ingredience

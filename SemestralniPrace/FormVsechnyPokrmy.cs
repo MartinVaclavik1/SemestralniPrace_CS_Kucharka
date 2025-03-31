@@ -77,8 +77,6 @@ namespace SemestralniPrace
 
 
             formJidlo.ShowDialog();
-            AktualizujView();
-
 
             AktualizujView();
         }
@@ -128,7 +126,7 @@ namespace SemestralniPrace
                 $"left join IngredienceVeSkladu ivs using(id_ingredience) " +
                 $"where nazev =\'{nazevPokrmu}\' and ifnull(ivj.pocet - ivs.pocet, ivj.pocet) > 0");
 
-                if(list == null)
+                if (list == null)
                 {
                     MessageBox.Show("Všechny ingredience pro pokrm jsou již ve skladu", "Info");
                 }
@@ -137,7 +135,7 @@ namespace SemestralniPrace
                     string text = "";
                     foreach (var item in list)
                     {
-                        text += item +"\n\n";
+                        text += item + "\n\n";
                     }
                     MessageBox.Show(text, "Chybějící ingredience");
                 }
@@ -147,7 +145,7 @@ namespace SemestralniPrace
             {
                 MessageBox.Show("Nevybrán žádný pokrm k úpravě", "Chyba!");
             }
-            
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -155,24 +153,21 @@ namespace SemestralniPrace
             if (listView_pokrmy.SelectedItems.Count > 0)
             {
                 string nazevPokrmu = listView_pokrmy.SelectedItems[0].Text.Trim();
-                var list = Databaze.ZjistiIntAString($"select ifnull(ivj.pocet - ivs.pocet, ivj.pocet)" +
-                    $", nazev_ingredience from Jidlo " +
+                var list = Databaze.ZjistiIntAString($"select ivj.pocet, nazev_ingredience from Jidlo " +
                 $"left join IngredienceVJidle ivj using(id_jidla) " +
                 $"left join Ingredience using(id_ingredience) " +
                 $"left join IngredienceVeSkladu ivs using(id_ingredience) " +
-                $"where nazev =\'{nazevPokrmu}\' and ifnull(ivj.pocet - ivs.pocet, ivj.pocet) > 0");
+                $"where nazev =\'{nazevPokrmu}\'");
 
                 if (list == null)
                 {
-                    MessageBox.Show("Všechny ingredience pro pokrm jsou již ve skladu", "Info");
+                    MessageBox.Show("Pokrm nemá žádné ingredience", "Error");
                 }
                 else
                 {
-                    //otevře novej form, kde v konstruktoru bude nazevPokrmu a List<int,string>
-                    //a bude v něm dataGridView s forcnutým intem a locklou editacy na názvu
-                    //label: upravte, zda jste použili jiný počet ingrediencí
-                    FormKontrolaOdebraniIngredienci form = new FormKontrolaOdebraniIngredienci(nazevPokrmu,list);
+                    FormKontrolaOdebraniIngredienci form = new FormKontrolaOdebraniIngredienci(nazevPokrmu, list);
                     form.ShowDialog();
+                    Close();
                 }
 
             }

@@ -1,6 +1,6 @@
 ﻿namespace SemestralniPrace
 {
-    partial class Form1
+    partial class FormHlavniObrazovka
     {
         /// <summary>
         /// Vyžaduje se proměnná návrháře.
@@ -186,7 +186,7 @@
             this.pocet.MinimumWidth = 6;
             this.pocet.Name = "pocet";
             // 
-            // Form1
+            // FormHlavniObrazovka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -204,7 +204,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(852, 397);
             this.MinimumSize = new System.Drawing.Size(852, 397);
-            this.Name = "Form1";
+            this.Name = "FormHlavniObrazovka";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kucharka";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIngredience)).EndInit();
