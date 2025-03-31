@@ -143,7 +143,7 @@ namespace SemestralniPrace
             }
             else
             {
-                MessageBox.Show("Nevybrán žádný pokrm k úpravě", "Chyba!");
+                MessageBox.Show("Nevybrán žádný pokrm k zobrazení chybějících ingrediencí", "Chyba!");
             }
 
         }
@@ -173,7 +173,7 @@ namespace SemestralniPrace
             }
             else
             {
-                MessageBox.Show("Nevybrán žádný pokrm k úpravě", "Chyba!");
+                MessageBox.Show("Nevybrán žádný pokrm", "Chyba!");
             }
 
         }
