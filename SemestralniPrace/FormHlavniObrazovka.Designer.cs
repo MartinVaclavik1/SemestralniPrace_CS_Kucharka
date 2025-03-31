@@ -201,7 +201,11 @@
             this.Controls.Add(this.listView_ingredience);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView_pokrmy);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(852, 397);
+            this.MinimumSize = new System.Drawing.Size(852, 397);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kucharka";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIngredience)).EndInit();
             this.ResumeLayout(false);
