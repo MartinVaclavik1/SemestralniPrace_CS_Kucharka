@@ -166,8 +166,11 @@ namespace SemestralniPrace
                 else
                 {
                     FormKontrolaOdebraniIngredienci form = new FormKontrolaOdebraniIngredienci(nazevPokrmu, list);
-                    form.ShowDialog();
-                    Close();
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        Close();
+                    }
+                    
                 }
 
             }

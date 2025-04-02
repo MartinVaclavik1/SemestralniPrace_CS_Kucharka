@@ -68,6 +68,7 @@ namespace SemestralniPrace
                     {
                         MessageBox.Show($"Ve skladu není dostatek ingrediencí na odebrání: {nazev}, v počtu: {pocet}",
                             "Chyba");
+                        DialogResult = DialogResult.Abort;
                         return;
                     }
                 }
@@ -75,6 +76,7 @@ namespace SemestralniPrace
                 {
                     MessageBox.Show($"Ve skladu není dostatek ingrediencí na odebrání: {nazev}, v počtu: {pocet}",
                             "Chyba");
+                    DialogResult = DialogResult.Abort;
                     return;
                 }
                 
