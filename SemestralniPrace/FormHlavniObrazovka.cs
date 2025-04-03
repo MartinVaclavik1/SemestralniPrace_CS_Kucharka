@@ -133,7 +133,7 @@ namespace SemestralniPrace
             }
         }
 
-        public void AktualizujViews()
+        private void AktualizujViews()
         {
             AktualizujListViewIngredience();
             AktualizujListViewPokrmy();
