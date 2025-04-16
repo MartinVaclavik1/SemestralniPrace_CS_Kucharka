@@ -27,7 +27,6 @@ namespace SemestralniPrace
             AktualizujViews();
             toolTip.SetToolTip(listView_pokrmy, "klikněte dvakrát na vybraný pokrm pro úpravu");
             toolTip.SetToolTip(listView_ingredience, "klikněte dvakrát na vybranou ingredienci pro úpravu");
-            dataGridViewIngredience.Columns[1].ValueType = typeof(int);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -103,18 +102,6 @@ namespace SemestralniPrace
                 foreach (var item in list)
                 {
                     listView_ingredience.Items.Add(new ListViewItem((string)item));
-                }
-            }
-
-
-            List<(int, string)> list2 = Databaze.ZjistiIntAString("select pocet, nazev_ingredience from ViewNazevAPocetIngVeSkladu1 where pocet > 0");
-            dataGridViewIngredience.Rows.Clear();
-            if (list2 != null)
-            {
-                foreach (var item in list2)
-                {
-                    dataGridViewIngredience.Rows.Add(item.Item2, item.Item1);
-                    //listView_ingredience.Items.Add(new ListViewItem((string)item));
                 }
             }
         }
@@ -233,30 +220,6 @@ namespace SemestralniPrace
             {
                 MessageBox.Show("Nevybrána žádná ingredience k odebrání", "Chyba!");
             }
-        }
-
-        private void dataGridViewIngredience_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridViewIngredience_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (!(dataGridViewIngredience.Rows.Count > 0))
-            {
-                return;
-            }
-            //radek
-            int radek = e.RowIndex;
-
-            //sloupec - 0, nebo 1
-            int sloupec = e.ColumnIndex;
-
-
-            //dataGridViewIngredience.Columns;
-            DataGridViewRow row = this.dataGridViewIngredience.Rows[radek];
-            MessageBox.Show(row.Cells[sloupec].Value.ToString());
-
         }
     }
 }

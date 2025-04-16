@@ -39,10 +39,6 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.checkBoxTips = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.dataGridViewIngredience = new System.Windows.Forms.DataGridView();
-            this.Ingredience = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pocet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIngredience)).BeginInit();
             this.SuspendLayout();
             // 
             // listView_pokrmy
@@ -150,48 +146,11 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // dataGridViewIngredience
-            // 
-            this.dataGridViewIngredience.AllowUserToAddRows = false;
-            this.dataGridViewIngredience.AllowUserToDeleteRows = false;
-            this.dataGridViewIngredience.AllowUserToResizeColumns = false;
-            this.dataGridViewIngredience.AllowUserToResizeRows = false;
-            this.dataGridViewIngredience.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewIngredience.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewIngredience.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Ingredience,
-            this.pocet});
-            this.dataGridViewIngredience.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridViewIngredience.Location = new System.Drawing.Point(326, 28);
-            this.dataGridViewIngredience.MultiSelect = false;
-            this.dataGridViewIngredience.Name = "dataGridViewIngredience";
-            this.dataGridViewIngredience.RowHeadersVisible = false;
-            this.dataGridViewIngredience.RowHeadersWidth = 51;
-            this.dataGridViewIngredience.RowTemplate.Height = 24;
-            this.dataGridViewIngredience.Size = new System.Drawing.Size(270, 245);
-            this.dataGridViewIngredience.TabIndex = 10;
-            this.dataGridViewIngredience.Visible = false;
-            this.dataGridViewIngredience.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIngredience_CellEndEdit);
-            this.dataGridViewIngredience.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIngredience_CellValueChanged);
-            // 
-            // Ingredience
-            // 
-            this.Ingredience.HeaderText = "Ingredience";
-            this.Ingredience.MinimumWidth = 6;
-            this.Ingredience.Name = "Ingredience";
-            // 
-            // pocet
-            // 
-            this.pocet.HeaderText = "počet (ks)/ hmotnost (g)";
-            this.pocet.MinimumWidth = 6;
-            this.pocet.Name = "pocet";
-            // 
             // FormHlavniObrazovka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 350);
-            this.Controls.Add(this.dataGridViewIngredience);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.checkBoxTips);
             this.Controls.Add(this.button4);
@@ -208,7 +167,6 @@
             this.Name = "FormHlavniObrazovka";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kucharka";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIngredience)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,9 +184,6 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.CheckBox checkBoxTips;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridViewIngredience;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ingredience;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pocet;
     }
 }
 
