@@ -107,6 +107,7 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Ingredience";
             this.Text = "Uprava Ingredience";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

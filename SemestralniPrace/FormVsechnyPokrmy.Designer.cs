@@ -123,6 +123,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnUprav);
             this.Controls.Add(this.listView_pokrmy);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormVsechnyPokrmy";
             this.Text = "FormVsechnyPokrmy";
             this.ResumeLayout(false);

@@ -109,6 +109,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.numericUpDownPocet);
             this.Controls.Add(this.comboIngredience);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormPridatIngredience";
             this.Text = "FormPridatIngredience";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPocet)).EndInit();

@@ -109,6 +109,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.numericUpDownPocet);
             this.Controls.Add(this.comboIngredience);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormHledaniIngredienci";
             this.Text = "FormHledaniIngredienci";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPocet)).EndInit();

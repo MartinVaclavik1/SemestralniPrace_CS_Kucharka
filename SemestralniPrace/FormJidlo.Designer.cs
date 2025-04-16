@@ -107,6 +107,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxNazevPokrmu);
             this.Controls.Add(this.listViewIngrediencePokrmu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormJidlo";
             this.Text = "FormJidlo";
             this.ResumeLayout(false);

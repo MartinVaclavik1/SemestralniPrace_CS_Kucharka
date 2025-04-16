@@ -115,6 +115,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.dataGridViewIngredience);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormKontrolaOdebraniIngredienci";
             this.Text = "FormKontrolaOdebraniIngredienci";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIngredience)).EndInit();
