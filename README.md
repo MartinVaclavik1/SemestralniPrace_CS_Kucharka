@@ -4,4 +4,4 @@ Nenapadá vás, co udělat z vašich potravin v lednici? Není problém. tato ap
 
 vkládání, upravování, odebírání potravin (ingrediencí)\
 vkládání, upravování, odebírání pokrmů \
-automatické vyhodnocení, co lze vytvořit z ingrediencí a popř. odebrání daného počtu ingrediencí ze skladu\
+automatické vyhodnocení, co lze vytvořit z ingrediencí a popř. odebrání daného počtu ingrediencí ze skladu
