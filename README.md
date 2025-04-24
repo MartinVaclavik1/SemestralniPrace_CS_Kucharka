@@ -1,4 +1,4 @@
-Nenapadá vás, co udělat z vašich potravin v lednici? Není problém. tato aplikace je přímo pro vás. (všechny recepty si (zatím?) musíte přidat samy)
+Nenapadá vás, co udělat z vašich potravin v lednici? Není problém. tato aplikace je přímo pro vás. (všechny recepty si (zatím?) musíte přidat samy) \n
 C# Program pro sledování zásob v lednici/skladu a možná jídla, co lze uvařit s využitím sqlite pro ukládání dat.
 
 vkládání, upravování, odebírání potravin (ingrediencí)
